@@ -11,6 +11,7 @@ import { useHistory } from 'react-router-dom';
 import { saveAdmin } from '../../actions/saveAdmin';
 import { useMeta } from '../../contexts';
 import { SetupVariables } from '../../components/SetupVariables';
+import { LandingPage } from './landingPage';
 
 export const SetupView = () => {
   const [isInitalizingStore, setIsInitalizingStore] = useState(false);
@@ -63,12 +64,13 @@ export const SetupView = () => {
   return (
     <>
       {!wallet.connected && (
-        <p>
-          <Button type="primary" className="app-btn" onClick={connect}>
-            Connect
-          </Button>{' '}
-          to configure store.
-        </p>
+        // <p>
+        //   <Button type="primary" className="app-btn" onClick={connect}>
+        //     Connect
+        //   </Button>{' '}
+        //   to configure store.
+        // </p>
+        <LandingPage/>
       )}
       {wallet.connected && !store && (
         <>
