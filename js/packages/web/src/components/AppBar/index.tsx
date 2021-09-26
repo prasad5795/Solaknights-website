@@ -55,16 +55,27 @@ const DefaultActions = ({ vertical = false }: { vertical?: boolean }) => {
       }}
     >
       <Link to={`/`}>
+        <Button className="app-btn">Home</Button>
+      </Link>
+      <Link to={`/`}>
+        <Button className="app-btn">Marketplace</Button>
+      </Link>
+      <Link to={`/artworks`}>
+        <Button className="app-btn">
+          {connected ? 'My Solaknights' : 'My Solaknights'}
+        </Button>
+      </Link>
+      <Link to={`/partners`}>
+        <Button className="app-btn">Partners</Button>
+      </Link>
+      <Link to={`/`}>
         <Button className="app-btn">Discord</Button>
       </Link>
       <Link to={`/`}>
         <Button className="app-btn">Twitter</Button>
       </Link>
       <Link to={`/`}>
-        <Button className="app-btn">Telegram</Button>
-      </Link>
-      <Link to={`/`}>
-        <Button className="app-btn">Home</Button>
+        <Button className="app-btn">Instagram</Button>
       </Link>
       {/* <Link to={`/artworks`}>
         <Button className="app-btn">
@@ -75,9 +86,6 @@ const DefaultActions = ({ vertical = false }: { vertical?: boolean }) => {
         <Button className="app-btn">Creators</Button>
       </Link> 
     */}
-      <Link to={`/partners`}>
-        <Button className="app-btn">Partners</Button>
-      </Link>
     </div>
   );
 };
@@ -169,7 +177,7 @@ const LogoTitleDiv = styled.div`
       margin-right: 10px;
     }
     img {
-      border-radius: 25px;
+      border-radius: 8px;
     }
   }
 `;
