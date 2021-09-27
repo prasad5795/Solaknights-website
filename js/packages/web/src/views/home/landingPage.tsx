@@ -55,7 +55,7 @@ export const LandingPage = () => {
     <Layout>
       <Content>
         <Row justify="center">
-          <StyledCol span={5}></StyledCol>
+          <StyledCol span={4}></StyledCol>
           <StyledCol span={8}>
             <Row>
               <Col span={24}>
@@ -150,7 +150,7 @@ export const LandingPage = () => {
               </Col>
             </Row>
           </StyledCol>
-          <StyledCol span={7}>
+          <StyledCol span={8}>
             <MeshViewer
               className="move-right modalSize"
               url="https://www.arweave.net/oE4FhiaDFuwmrJFoCmrxFkYCxBPrb5XKY80cUdxN4Pg?ext=glb"

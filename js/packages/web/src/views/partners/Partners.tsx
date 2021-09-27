@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Layout } from 'antd';
 import {
   Row,
@@ -13,8 +13,120 @@ import {
   Button,
 } from 'antd';
 import styled from 'styled-components';
+import Countdown from 'react-countdown';
+import {
+  Button as MaterialUiButton,
+  CircularProgress,
+  Snackbar,
+} from '@material-ui/core';
+import { useWallet } from '@solana/wallet-adapter-react';
+import {
+  CandyMachine,
+  awaitTransactionSignatureConfirmation,
+  getCandyMachineState,
+  mintOneToken,
+  shortenAddress,
+} from './candy-machine';
+import { LAMPORTS_PER_SOL } from '@solana/web3.js';
 
-export const PartnersView = () => {
+interface AlertState {
+  open: boolean;
+  message: string;
+  severity: 'success' | 'info' | 'warning' | 'error' | undefined;
+}
+
+export const PartnersView = props => {
+  const [balance, setBalance] = useState<number>();
+  const [isActive, setIsActive] = useState(false); // true when countdown completes
+  const [isSoldOut, setIsSoldOut] = useState(false); // true when items remaining is zero
+  const [isMinting, setIsMinting] = useState(false); // true when user got to press MINT
+
+  const [alertState, setAlertState] = useState<AlertState>({
+    open: false,
+    message: '',
+    severity: undefined,
+  });
+
+  const [startDate, setStartDate] = useState(
+    new Date(props.startDate || 1631840400),
+  );
+  console.log('startDate', startDate);
+
+  const wallet = useWallet();
+  console.log('wallet', wallet);
+
+  const [candyMachine, setCandyMachine] = useState<CandyMachine>();
+  try {
+    console.log('tobase58', shortenAddress(wallet.publicKey?.toBase58()));
+  } catch (e) {
+    console.log('e', e);
+  }
+  const onMint = async () => {
+    try {
+      setIsMinting(true);
+      if (wallet.connected && candyMachine?.program && wallet.publicKey) {
+        const mintTxId = await mintOneToken(
+          candyMachine,
+          props.config,
+          wallet.publicKey,
+          props.treasury,
+        );
+
+        const status = await awaitTransactionSignatureConfirmation(
+          mintTxId,
+          props.txTimeout,
+          props.connection,
+          'singleGossip',
+          false,
+        );
+
+        if (!status?.err) {
+          setAlertState({
+            open: true,
+            message: 'Congratulations! Mint succeeded!',
+            severity: 'success',
+          });
+        } else {
+          setAlertState({
+            open: true,
+            message: 'Mint failed! Please try again!',
+            severity: 'error',
+          });
+        }
+      }
+    } catch (error: any) {
+      // TODO: blech:
+      let message = error.msg || 'Minting failed! Please try again!';
+      if (!error.msg) {
+        if (error.message.indexOf('0x138')) {
+        } else if (error.message.indexOf('0x137')) {
+          message = `SOLD OUT!`;
+        } else if (error.message.indexOf('0x135')) {
+          message = `Insufficient funds to mint. Please fund your wallet.`;
+        }
+      } else {
+        if (error.code === 311) {
+          message = `SOLD OUT!`;
+          setIsSoldOut(true);
+        } else if (error.code === 312) {
+          message = `Minting period hasn't started yet.`;
+        }
+      }
+
+      setAlertState({
+        open: true,
+        message,
+        severity: 'error',
+      });
+    } finally {
+      if (wallet?.publicKey) {
+        const balance = await props.connection.getBalance(wallet?.publicKey);
+        setBalance(balance / LAMPORTS_PER_SOL);
+      }
+      setIsMinting(false);
+    }
+  };
+
   const { Header, Content, Footer } = Layout;
   const { Title } = Typography;
 
@@ -94,6 +206,40 @@ export const PartnersView = () => {
               ></Image>
             </Col>
           </Row>
+
+          {wallet.connected && (
+            <p>Address: {shortenAddress(wallet.publicKey?.toBase58())}</p>
+          )}
+
+          {wallet.connected && (
+            <p>Balance: {(balance || 0).toLocaleString()} SOL</p>
+          )}
+
+          {wallet.connected && (
+            <MintButton
+              disabled={isSoldOut || isMinting || !isActive}
+              onClick={onMint}
+              variant="contained"
+            >
+              {isSoldOut ? (
+                'SOLD OUT'
+              ) : isActive ? (
+                isMinting ? (
+                  <CircularProgress />
+                ) : (
+                  'MINT'
+                )
+              ) : (
+                <Countdown
+                  date={startDate}
+                  onMount={({ completed }) => completed && setIsActive(true)}
+                  onComplete={() => setIsActive(true)}
+                  renderer={renderCounter}
+                />
+              )}
+            </MintButton>
+          )}
+
           <StyledButton2>Coming Soon</StyledButton2>
         </StyledCard2>
       </Content>
@@ -176,3 +322,15 @@ const StyledButton2 = styled(Button)`
     }
   }
 `;
+
+const MintButton = styled(MaterialUiButton)``; // add your styles here
+
+const renderCounter = ({ days, hours, minutes, seconds, completed }: any) => {
+  return (
+    <CounterText>
+      {hours} hours, {minutes} minutes, {seconds} seconds
+    </CounterText>
+  );
+};
+
+const CounterText = styled.span``; // add your styles here

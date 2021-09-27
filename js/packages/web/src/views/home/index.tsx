@@ -19,7 +19,7 @@ export const HomeView = () => {
         alignItems: 'center',
       }}
     >
-      {showAuctions ? <AuctionListView /> : <SetupView />}
+      <SetupView></SetupView>
     </Layout>
   );
 };
