@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import * as anchor from '@project-serum/anchor';
+import React, { useState, useEffect } from 'react';
 import { Layout } from 'antd';
 import {
   Row,
@@ -13,6 +14,9 @@ import {
   Button,
 } from 'antd';
 import styled from 'styled-components';
+import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
+// import { useConnection } from '@oyster/common';
+
 import Countdown from 'react-countdown';
 import {
   Button as MaterialUiButton,
@@ -41,6 +45,28 @@ export const PartnersView = props => {
   const [isSoldOut, setIsSoldOut] = useState(false); // true when items remaining is zero
   const [isMinting, setIsMinting] = useState(false); // true when user got to press MINT
 
+  // const connection = useConnection();
+  console.log(
+    ' process.env.REACT_APP_CANDY_MACHINE_ID',
+    process.env.REACT_APP_CANDY_MACHINE_ID,
+  );
+  const [candyMachineId, setCandyMachineId] = useState(
+    new anchor.web3.PublicKey(process.env.REACT_APP_CANDY_MACHINE_ID!),
+  );
+
+  const [treasury, setTreasury] = useState(
+    new anchor.web3.PublicKey(process.env.REACT_APP_TREASURY_ADDRESS!),
+  );
+
+  const [config, setConfig] = useState(
+    new anchor.web3.PublicKey(process.env.REACT_APP_CANDY_MACHINE_CONFIG!),
+  );
+
+  const rpcHost = process.env.REACT_APP_SOLANA_RPC_HOST!;
+  const [connection, setConection] = useState(
+    new anchor.web3.Connection(rpcHost),
+  );
+
   const [alertState, setAlertState] = useState<AlertState>({
     open: false,
     message: '',
@@ -56,26 +82,22 @@ export const PartnersView = props => {
   console.log('wallet', wallet);
 
   const [candyMachine, setCandyMachine] = useState<CandyMachine>();
-  try {
-    console.log('tobase58', shortenAddress(wallet.publicKey?.toBase58()));
-  } catch (e) {
-    console.log('e', e);
-  }
+
   const onMint = async () => {
     try {
       setIsMinting(true);
       if (wallet.connected && candyMachine?.program && wallet.publicKey) {
         const mintTxId = await mintOneToken(
           candyMachine,
-          props.config,
+          config,
           wallet.publicKey,
-          props.treasury,
+          treasury,
         );
 
         const status = await awaitTransactionSignatureConfirmation(
           mintTxId,
           props.txTimeout,
-          props.connection,
+          connection,
           'singleGossip',
           false,
         );
@@ -120,12 +142,49 @@ export const PartnersView = props => {
       });
     } finally {
       if (wallet?.publicKey) {
-        const balance = await props.connection.getBalance(wallet?.publicKey);
+        const balance = await connection.getBalance(wallet?.publicKey);
         setBalance(balance / LAMPORTS_PER_SOL);
       }
       setIsMinting(false);
     }
   };
+
+  useEffect(() => {
+    (async () => {
+      if (wallet?.publicKey) {
+        console.log('first useeffect');
+        const balance = await connection.getBalance(wallet.publicKey);
+        setBalance(balance / LAMPORTS_PER_SOL);
+      }
+    })();
+  }, [wallet, connection]);
+
+  useEffect(() => {
+    (async () => {
+      if (
+        !wallet ||
+        !wallet.publicKey ||
+        !wallet.signAllTransactions ||
+        !wallet.signTransaction
+      ) {
+        return;
+      }
+      console.log('second useeffect');
+
+      const anchorWallet = {
+        publicKey: wallet.publicKey,
+        signAllTransactions: wallet.signAllTransactions,
+        signTransaction: wallet.signTransaction,
+      } as anchor.Wallet;
+
+      const { candyMachine, goLiveDate, itemsRemaining } =
+        await getCandyMachineState(anchorWallet, candyMachineId, connection);
+
+      setIsSoldOut(itemsRemaining === 0);
+      setStartDate(goLiveDate);
+      setCandyMachine(candyMachine);
+    })();
+  }, [wallet, candyMachineId, connection]);
 
   const { Header, Content, Footer } = Layout;
   const { Title } = Typography;

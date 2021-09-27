@@ -1,5 +1,7 @@
 const withPlugins = require('next-compose-plugins');
 const withLess = require('next-with-less');
+require('dotenv').config()
+const webpack = require('webpack')
 
 const assetPrefix = process.env.ASSET_PREFIX || '';
 
@@ -31,6 +33,9 @@ module.exports = withPlugins(plugins, {
     if (!isServer) {
       config.resolve.fallback.fs = false;
     }
+    config.plugins.push(
+      new webpack.EnvironmentPlugin(process.env)
+    )
     return config;
   },
   env: {
