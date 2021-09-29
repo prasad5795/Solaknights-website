@@ -10,6 +10,18 @@ export const PartnersView = props => {
   const { Header, Content, Footer } = Layout;
   const { Title } = Typography;
 
+  console.log(
+    'process.env.REACT_APP_TREASURY_ADDRESS',
+    process.env.REACT_APP_TREASURY_ADDRESS,
+  );
+  console.log(
+    'process.env.REACT_APP_CANDY_MACHINE_CONFIG',
+    process.env.REACT_APP_CANDY_MACHINE_CONFIG,
+  );
+  console.log(
+    'process.env.REACT_APP_CANDY_MACHINE_ID',
+    process.env.REACT_APP_CANDY_MACHINE_ID,
+  );
   const treasury = new anchor.web3.PublicKey(
     process.env.REACT_APP_TREASURY_ADDRESS!,
   );
@@ -108,24 +120,36 @@ export const PartnersView = props => {
             </Col>
             <Col span={1}></Col>
             <Col span={11} style={{ display: 'flex' }}>
-              <Image
-                src="/img/ChrisPBaconAdult.png"
-                preview={false}
-                // height={300}
-                // width={275}
-                className="responsive-image"
-              ></Image>
-              <Image
-                src="/img/ChrisPBaconBaby.png"
-                preview={false}
-                // height={300}
-                // width={275}
-                className="responsive-image"
-              ></Image>
+              <Row style={{ marginRight: '5%' }}>
+                <Image
+                  src="/img/ChrisPBaconAdult.png"
+                  preview={false}
+                  // height={300}
+                  // width={275}
+                  className="responsive-image"
+                ></Image>
+                <MintButtonComponent
+                  {...mintBtnComponentProps}
+                  text="Mint Adult Chris P. Bacon"
+                />
+              </Row>
+              <Row>
+                <Image
+                  src="/img/ChrisPBaconBaby.png"
+                  preview={false}
+                  // height={300}
+                  // width={275}
+                  className="responsive-image"
+                  style={{ marginBottom: '10px' }}
+                ></Image>
+                <MintButtonComponent
+                  {...mintBtnComponentProps}
+                  text="Mint Baby Chris P. Bacon"
+                />
+              </Row>
             </Col>
           </Row>
-          <MintButtonComponent {...mintBtnComponentProps} />
-          <StyledButton2>Coming Soon</StyledButton2>
+          {/* <StyledButton2>Coming Soon</StyledButton2> */}
         </StyledCard2>
       </Content>
     </Layout>

@@ -1,17 +1,11 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Countdown from 'react-countdown';
-import { Button, CircularProgress, Snackbar } from '@material-ui/core';
+import { CircularProgress, Snackbar } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
-import {
-  useConnection,
-  useStore,
-  useWalletModal,
-  WhitelistedCreator,
-} from '@oyster/common';
+import { Row, Col, Typography, Card, Image, Button } from 'antd';
+
 import * as anchor from '@project-serum/anchor';
-import { useMeta } from '../../contexts';
-import { useHistory } from 'react-router-dom';
 
 import { LAMPORTS_PER_SOL } from '@solana/web3.js';
 
@@ -32,7 +26,38 @@ const CounterText = styled.span``; // add your styles here
 
 const MintContainer = styled.div``; // add your styles here
 
-const MintButton = styled(Button)``; // add your styles here
+const MintButton = styled(Button)`
+  & {
+    width: 100%;
+    margin-bottom: 20px;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: center;
+    justify-content: center;
+    padding: 20px 10px;
+    background: #1d1c1c;
+    border-radius: 8px;
+    height: 58px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    text-align: right;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #cc89c7;
+
+    :hover {
+      color: #fff;
+      background: #1d1c1c;
+      border-color: #cc89c7;
+    }
+  }
+`; // add your styles here
 
 export interface HomeProps {
   candyMachineId: anchor.web3.PublicKey;
@@ -57,17 +82,7 @@ export const MintButtonComponent = props => {
 
   const [startDate, setStartDate] = useState(new Date(props.startDate));
 
-  const connection = useConnection();
-  const useMetaOutput = useMeta();
-  const useStoreOutput = useStore();
-  const history = useHistory();
   const wallet = useWallet();
-  console.log("connection",connection)
-  console.log("props.connection",props.connection)
-  console.log("useMetaOutput",useMetaOutput)
-  console.log("useStoreOutput",useStoreOutput)
-  console.log("history",history)
-  console.log("wallet",wallet)
   const [candyMachine, setCandyMachine] = useState<CandyMachine>();
 
   const onMint = async () => {
@@ -169,7 +184,7 @@ export const MintButtonComponent = props => {
       );
 
       const { candyMachine, goLiveDate, itemsRemaining } = candyMachineState;
-      console.log("candyMachineState",candyMachineState)
+      console.log('candyMachineState', candyMachineState);
 
       setIsSoldOut(itemsRemaining === 0);
       setStartDate(goLiveDate);
@@ -179,14 +194,6 @@ export const MintButtonComponent = props => {
 
   return (
     <main>
-      {wallet.connected && (
-        <p>Address: {shortenAddress(wallet.publicKey?.toBase58() || '')}</p>
-      )}
-
-      {wallet.connected && (
-        <p>Balance: {(balance || 0).toLocaleString()} SOL</p>
-      )}
-
       <MintContainer>
         {!wallet.connected ? (
           <ConnectButton>Connect Wallet</ConnectButton>
@@ -194,7 +201,6 @@ export const MintButtonComponent = props => {
           <MintButton
             disabled={isSoldOut || isMinting || !isActive}
             onClick={onMint}
-            variant="contained"
           >
             {isSoldOut ? (
               'SOLD OUT'
@@ -202,7 +208,7 @@ export const MintButtonComponent = props => {
               isMinting ? (
                 <CircularProgress />
               ) : (
-                'MINT'
+                props.text
               )
             ) : (
               <Countdown
@@ -216,6 +222,17 @@ export const MintButtonComponent = props => {
         )}
       </MintContainer>
 
+      {wallet.connected && (
+        <p style={{ textAlign: 'center' }}>
+          Address: {shortenAddress(wallet.publicKey?.toBase58() || '')}
+          <br />
+          Balance: {(balance || 0).toLocaleString()} SOL
+        </p>
+      )}
+      {/* 
+      {wallet.connected && (
+        <p></p>
+      )} */}
       <Snackbar
         open={alertState.open}
         autoHideDuration={6000}
