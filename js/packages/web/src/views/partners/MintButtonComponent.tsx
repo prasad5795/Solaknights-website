@@ -3,8 +3,15 @@ import styled from 'styled-components';
 import Countdown from 'react-countdown';
 import { Button, CircularProgress, Snackbar } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
-
+import {
+  useConnection,
+  useStore,
+  useWalletModal,
+  WhitelistedCreator,
+} from '@oyster/common';
 import * as anchor from '@project-serum/anchor';
+import { useMeta } from '../../contexts';
+import { useHistory } from 'react-router-dom';
 
 import { LAMPORTS_PER_SOL } from '@solana/web3.js';
 
@@ -50,7 +57,17 @@ export const MintButtonComponent = props => {
 
   const [startDate, setStartDate] = useState(new Date(props.startDate));
 
+  const connection = useConnection();
+  const useMetaOutput = useMeta();
+  const useStoreOutput = useStore();
+  const history = useHistory();
   const wallet = useWallet();
+  console.log("connection",connection)
+  console.log("props.connection",props.connection)
+  console.log("useMetaOutput",useMetaOutput)
+  console.log("useStoreOutput",useStoreOutput)
+  console.log("history",history)
+  console.log("wallet",wallet)
   const [candyMachine, setCandyMachine] = useState<CandyMachine>();
 
   const onMint = async () => {
