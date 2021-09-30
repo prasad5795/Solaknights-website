@@ -10,53 +10,63 @@ export const PartnersView = props => {
   const { Header, Content, Footer } = Layout;
   const { Title } = Typography;
 
-  console.log(
-    'process.env.REACT_APP_TREASURY_ADDRESS',
-    process.env.REACT_APP_TREASURY_ADDRESS,
-  );
-  console.log(
-    'process.env.REACT_APP_CANDY_MACHINE_CONFIG',
-    process.env.REACT_APP_CANDY_MACHINE_CONFIG,
-  );
-  console.log(
-    'process.env.REACT_APP_CANDY_MACHINE_ID',
-    process.env.REACT_APP_CANDY_MACHINE_ID,
-  );
-  const treasury = new anchor.web3.PublicKey(
-    process.env.REACT_APP_TREASURY_ADDRESS!,
-  );
-
-  const config = new anchor.web3.PublicKey(
-    process.env.REACT_APP_CANDY_MACHINE_CONFIG!,
-  );
-
-  const candyMachineId = new anchor.web3.PublicKey(
-    process.env.REACT_APP_CANDY_MACHINE_ID!,
-  );
-
-  const network = process.env.REACT_APP_SOLANA_NETWORK as WalletAdapterNetwork;
-
-  const rpcHost = process.env.REACT_APP_SOLANA_RPC_HOST!;
-  const connection = new anchor.web3.Connection(rpcHost);
-
-  const startDateSeed = parseInt(process.env.REACT_APP_CANDY_START_DATE!, 10);
-
   const txTimeout = 30000; // milliseconds (confirm this works for your project)
 
-  // console.log('treasury', treasury);
-  // console.log('config', config);
-  // console.log('candyMachineId', candyMachineId);
-  // console.log('network', network);
-  // console.log('rpcHost', rpcHost);
-  // console.log('connection', connection);
-  // console.log('startDateSeed', startDateSeed);
+  const treasury1 = new anchor.web3.PublicKey(
+    process.env.REACT_APP_TREASURY_ADDRESS1!,
+  );
 
-  const mintBtnComponentProps = {
-    candyMachineId,
-    config,
-    connection,
-    startDate: startDateSeed,
-    treasury,
+  const config1 = new anchor.web3.PublicKey(
+    process.env.REACT_APP_CANDY_MACHINE_CONFIG1!,
+  );
+
+  const candyMachineId1 = new anchor.web3.PublicKey(
+    process.env.REACT_APP_CANDY_MACHINE_ID1!,
+  );
+
+  const network1 = process.env
+    .REACT_APP_SOLANA_NETWORK1 as WalletAdapterNetwork;
+
+  const rpcHost1 = process.env.REACT_APP_SOLANA_RPC_HOST1!;
+  const connection1 = new anchor.web3.Connection(rpcHost1);
+
+  const startDateSeed1 = parseInt(process.env.REACT_APP_CANDY_START_DATE1!, 10);
+
+  const mintBtnComponentProps1 = {
+    candyMachineId: candyMachineId1,
+    config: config1,
+    connection: connection1,
+    startDate: startDateSeed1,
+    treasury: treasury1,
+    txTimeout,
+  };
+
+  const treasury2 = new anchor.web3.PublicKey(
+    process.env.REACT_APP_TREASURY_ADDRESS2!,
+  );
+
+  const config2 = new anchor.web3.PublicKey(
+    process.env.REACT_APP_CANDY_MACHINE_CONFIG2!,
+  );
+
+  const candyMachineId2 = new anchor.web3.PublicKey(
+    process.env.REACT_APP_CANDY_MACHINE_ID2!,
+  );
+
+  const network2 = process.env
+    .REACT_APP_SOLANA_NETWORK2 as WalletAdapterNetwork;
+
+  const rpcHost2 = process.env.REACT_APP_SOLANA_RPC_HOST2!;
+  const connection2 = new anchor.web3.Connection(rpcHost2);
+
+  const startDateSeed2 = parseInt(process.env.REACT_APP_CANDY_START_DATE2!, 10);
+
+  const mintBtnComponentProps2 = {
+    candyMachineId: candyMachineId2,
+    config: config2,
+    connection: connection2,
+    startDate: startDateSeed2,
+    treasury: treasury2,
     txTimeout,
   };
 
@@ -72,7 +82,7 @@ export const PartnersView = props => {
               marginBottom: '2%',
             }}
           >
-            <Col span={10}>
+            <Col span={10} style={{ margin: 'auto' }}>
               <Image
                 src="/img/SolSleepyZZZ.png"
                 preview={false}
@@ -88,7 +98,7 @@ export const PartnersView = props => {
               <Title style={{ color: 'black' }}>
                 Solaknights x SolSleepyZZZ
               </Title>
-              <p style={{ color: 'black' }}>
+              <StyledPara>
                 Our partnership with SolSleepyZZZ is built off our love for
                 games and NFTs! With this partnership you will be able to grab a
                 randomized Solaknight AND a Special Shield with the SolSleepyZZZ
@@ -99,7 +109,7 @@ export const PartnersView = props => {
                 select NFTs such as Solaknights for a limited time. VIP is
                 required to get the 'VIP Early Adopter' mints of Solaknights you
                 see on the top left of the image.
-              </p>
+              </StyledPara>
               <p>
                 <a href="https://www.instagram.com/solaknights/">
                   <img
@@ -150,7 +160,7 @@ export const PartnersView = props => {
           >
             <Col span={12}>
               <Title style={{ color: 'black' }}>Solaknights x Dippers</Title>
-              <p style={{ color: 'black' }}>
+              <StyledPara>
                 We are proud to announce our very first partnership with our
                 good friend Dippers! Dippers is all about Unreal Engine
                 Development! We are proud to partner with Dippers and they are
@@ -159,7 +169,7 @@ export const PartnersView = props => {
                 the right we have the childhood version of this beautiful Pig.
                 Please note this NFT is obtainable as soon as metaplex
                 implements a 'Buy Now' function instead of bidding!
-              </p>
+              </StyledPara>
               <p>
                 <a href="https://www.instagram.com/solaknights/">
                   <img
@@ -207,7 +217,7 @@ export const PartnersView = props => {
                   className="responsive-image"
                 ></Image>
                 <MintButtonComponent
-                  {...mintBtnComponentProps}
+                  {...mintBtnComponentProps1}
                   text="Mint Adult Chris P. Bacon"
                   price="1 SOL"
                 />
@@ -222,7 +232,7 @@ export const PartnersView = props => {
                   style={{ marginBottom: '10px' }}
                 ></Image>
                 <MintButtonComponent
-                  {...mintBtnComponentProps}
+                  {...mintBtnComponentProps2}
                   text="Mint Baby Chris P. Bacon"
                   price="1 SOL"
                 />
@@ -310,5 +320,12 @@ const StyledButton2 = styled(Button)`
       background: #1d1c1c;
       border-color: #cc89c7;
     }
+  }
+`;
+
+const StyledPara = styled.p`
+  & {
+    color: black;
+    font-size: 1.3em;
   }
 `;
