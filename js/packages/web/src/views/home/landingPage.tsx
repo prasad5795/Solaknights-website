@@ -160,8 +160,8 @@ export const LandingPage = () => {
                     rarity comes with better perks, discounts on items,
                     real-estate, airdrops, weaponry, and much more! The order
                     goes as follows White:Common, Green:Uncommon, Blue:Rare,
-                    Red:Super Rare, Purple:Epic, Orange:Legendary,
-                    Pink:Artifact, BabyPink:???. Users with Purple:Epic and
+                    Red:Super Rare +5% on all goods, Purple:Epic +10% on all goods, Orange:Legendary +20% on all goods,
+                    Pink:Artifact +30% on all goods, BabyPink:???. Users with Purple:Epic and
                     above start earning more airdrops, better discounts,
                     pre-sales, etc.
                   </Col>
@@ -215,34 +215,34 @@ export const LandingPage = () => {
           <br />
           <Col span={24}>
             <Row style={stepsRowStyle} justify="center">
-              <Steps direction="vertical" current={2}>
+              <Steps direction="vertical" current={3}>
                 <Step
                   title="Integration with UE4/5"
-                  description="Integrate Unreal Engine to the Solana network at a dApp in order to randomize and mint characters based on Purity/Luck"
+                  description="Integrate the Solana CLI / dApp into Unreal Engine 4/5 as a plugin in order to randomize and mint characters based on RNG. Rarity is already incorporated on mint by determining mint time, mint authority, and mint name."
                 />
                 <Step
                   title="Partnerships and Collaboration"
-                  description="Solaknights is partnering with any content creators and other NFT creators in general to grow as a community"
+                  description="Solaknights is partnering with select content creators and other NFT communities. If you wish to do partnerships please message #partnerships via Discord, we are capable of bringing your NFT into our game as a prop, character, equipment, etc. We are officially partnered with Dippers, Solana-Cuties, SolSleepyZZZ, DigitalEyes, MagicEden, Arpwire LLC, PlayToEarnNFT, Asknights, and more! "
                 />
                 <Step
                   title="Launch Metaplex Store"
-                  description="The Launching of Solaknights metaplex store, candy machine is in progress, and looking into other collaborations such as Solanart, Holaplex, DigitalEyes and more. We are also having our upcoming Partners launch with Dippers and SolSleepyzzz as well as a few others"
+                  description="The Launching of Solaknights metaplex store, we have successfully implemented multiple Mint buttons which is now a way to avoid the annoying slow auctions. We will continually update the website for optimization and some design changes as metaplex evolves overtime."
                 />
                 <Step
                   title="Advertising"
-                  description="With the help of our partners, collaborations, and through social media, we will be advertising our mints and focusing more building our minting application to make sure there are no errors"
+                  description="With the help of our partners, collaborations, and through social media, we will be advertising our mints and focusing more building our community. We are hoping to have over 100,000 discord members by the end of year. Any discord user who invite over 20 people will recieve a free Welcome Warrior NFT!"
                 />
                 <Step
                   title="Creating our Token"
-                  description="We will be creating our own Solaknights token and will announce it to everyone on social media with the address link when this is ready, we will also be incorporating the token to be in our games"
+                  description="We will be creating our own Solaknights token and will announce it to everyone on social media with the address link when this is ready, we will also be incorporating the token to be in our games. This token will be creating with Solana to avoid gas fees / transaction costs."
                 />
                 <Step
                   title="Game Development Journey"
-                  description="Continue building our RPG game which can incorporate NFTs into the game (we will have multiplayer games and singleplayer games)"
+                  description="Continue building our games which can incorporate NFTs into the game (we will have multiplayer games and singleplayer games). Currently in the works are 2 RPG games, a VR game, and an MMO (long term project)."
                 />
                 <Step
                   title="To be determined"
-                  description="We will be continue expanding this roadmap as we figure out steps (Eventually it will have to be its own page)"
+                  description="We will be continue expanding this roadmap as we figure out steps "
                 />
               </Steps>
             </Row>
@@ -260,7 +260,7 @@ export const LandingPage = () => {
           <Col span={24}>
             <Row>
               <Col span={6}></Col>
-              <Col span={6}>
+              <Col span={7}>
                 <Collapse>
                   <Panel header="What's The Rarity System?" key="3">
                     {colors.map(color => {
@@ -277,32 +277,25 @@ export const LandingPage = () => {
                   </Panel>
                 </Collapse>
               </Col>
-              <Col span={3}></Col>
-              <Col span={5}>
+              <Col span={1}></Col>
+              <Col span={7}>
                 <Collapse>
                   <Panel header="What is the Minting Process?" key="3">
                     <p style={{ color: 'white', textAlign: 'center' }}>
                       The minting process created randomized characters in
-                      Unreal Engine 5. The rarity is determined by Purity
-                      (matching gear) and Luck. For example, a full Knight with
-                      perfectly matching gear would be Pink, but there's still a
-                      0.02% chance to become baby pink with some luck. A random
-                      set of characters are uploaded randomly throughout the
-                      day, for now we can only allow a 'Bid' type of payment
-                      since metaplex hasn't released a 'Buy now for set price'
-                      option.
+                      Unreal Engine 5. The rarity is determined by RNG. Super Rare Knigt (red) get +5% on all airdrops, pre-sale access to all characters, lands, mounts, weaponry, etc. Epic Knight (purple) earn +10%, Legendary Knight (Orange) earn +20%, Artifact Knight (Pink) earn +30%, and Baby Pink is unknown.
                     </p>
                   </Panel>
                 </Collapse>
               </Col>
-              <Col span={2}></Col>
+              <Col span={1}></Col>
             </Row>
           </Col>
           <div style={{ width: '100%', height: '40px' }}></div>
           <Col span={24}>
             <Row>
               <Col span={6}></Col>
-              <Col span={6}>
+              <Col span={7}>
                 <Collapse>
                   <Panel
                     header="How do I connect my Solaknight to Unreal Engine?"
@@ -310,18 +303,18 @@ export const LandingPage = () => {
                   >
                     <p style={{ color: 'white', textAlign: 'center' }}>
                       When the games release, In order to connect your character
-                      to the game (only works with the 3D versions of
-                      characters) click 'Escape' in game, click 'Connect Wallet'
+                      to the game click 'Escape' in game to open up the menu, click 'Connect Wallet'
                       and then you can choose which wallet to connect with.
                       Afterwards, you will be able to see your NFT collection
                       and select which NFT to import to the game! Video coming
-                      soon.
+                      soon. Currently we are doing it from the website but no worries, we will definitely make it easier. We are planning to add a cool animations upon knight introductions (can skip for people with large amounts of knights).
+                       
                     </p>
                   </Panel>
                 </Collapse>
               </Col>
-              <Col span={3}></Col>
-              <Col span={5}>
+              <Col span={1}></Col>
+              <Col span={7}>
                 <Collapse>
                   <Panel header="What is metaplex?" key="3">
                     <p style={{ color: 'white', textAlign: 'center' }}>
