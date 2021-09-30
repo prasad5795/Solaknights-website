@@ -67,8 +67,8 @@ export const ArtworksView = () => {
                   key={id}
                   pubkey={m.pubkey}
                   preview={false}
-                  height={250}
-                  width={250}
+                  height={175}
+                  width={175}
                 />
               </Link>
             );

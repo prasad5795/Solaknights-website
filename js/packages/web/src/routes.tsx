@@ -11,6 +11,7 @@ import {
   AuctionView,
   HomeView,
 } from './views';
+import { AuctionListView } from './views/home/auctionList';
 import { AdminView } from './views/admin';
 import { BillingView } from './views/auction/billing';
 import { PartnersView } from './views/partners/Partners';
@@ -48,6 +49,11 @@ export function Routes() {
               exact
               path="/auction/:id"
               component={() => <AuctionView />}
+            />
+            <Route
+              exact
+              path="/auctions"
+              component={() => <AuctionListView />}
             />
             <Route
               exact

@@ -70,10 +70,18 @@ export const LandingPage = () => {
                 <Row>
                   <Col span={20}>
                     There will be a total of 20,000 characters minted. 10,000
-                    will be Solaknights Generation 0, which are unique characters who come without a weapon - 1 SOLANA. The 2nd planned batch
-                    of 10,000 Knights are planned to come equipped from a land far away. These knights comes equipped and have honed their skills at their Barracks from a town far far away.
-                     As their master, leader, and comrade, it is up to you to guide these glorious knights. Use them as your disposal, their sole pourpose is to aid you in any way possible.
-                      They are capable of being your main character, aiding you in combat, acting as a merchant for discounts on their specialties, and you may also send them on missions to acquire goods for you across the globe!
+                    will be Solaknights Generation 0, which are unique
+                    characters who come without a weapon - 1 SOLANA. The 2nd
+                    planned batch of 10,000 Knights are planned to come equipped
+                    from a land far away. These knights comes equipped and have
+                    honed their skills at their Barracks from a town far far
+                    away. As their master, leader, and comrade, it is up to you
+                    to guide these glorious knights. Use them as your disposal,
+                    their sole pourpose is to aid you in any way possible. They
+                    are capable of being your main character, aiding you in
+                    combat, acting as a merchant for discounts on their
+                    specialties, and you may also send them on missions to
+                    acquire goods for you across the globe!
                   </Col>
                 </Row>
               </Col>
@@ -92,9 +100,14 @@ export const LandingPage = () => {
                 <Row>
                   <Col span={20}>
                     Here at Solaknights, we have integrated our characters with
-                    Unreal Engine 4/5. The Solana applicated By owning a Solaknight, you are officially partnered with the Solaknights Academy. Welcome aboard and remember, these knights 
-                    come in different specializations and are armed for your services. Import them as you will, use them to your advantage, and even swap their gear to make a better knight for yourself if you wish to have one extremely powerful one man army.
-
+                    Unreal Engine 4/5. The Solana applicated By owning a
+                    Solaknight, you are officially partnered with the
+                    Solaknights Academy. Welcome aboard and remember, these
+                    knights come in different specializations and are armed for
+                    your services. Import them as you will, use them to your
+                    advantage, and even swap their gear to make a better knight
+                    for yourself if you wish to have one extremely powerful one
+                    man army.
                   </Col>
                 </Row>
               </Col>
@@ -112,8 +125,19 @@ export const LandingPage = () => {
                 </Title>
                 <Row>
                   <Col span={20}>
-                    Solaknights Academy has acquired many partners along wretched battles to get our knights on the line. We have allied with Dippers who give us the strength of Chris P. Bacon, a one pig farting army who will not only slaughter his opponents through his stench, but through harsh words as well.
-                     We have acquired magical allies from Solana Cuties, with their academic trainings in Water-type magic, Solana cuties has now given our knights a chance to acquire a water type magical ally! Leaf, Fire, Holy, and Darkness will be on their way once graduation takes place. From the other side of town we will be acquiring knights from SolSleepyZZZ's Weaponry, who come with a specialized crafted shield with a logo to represent their home.
+                    Solaknights Academy has acquired many partners along
+                    wretched battles to get our knights on the line. We have
+                    allied with Dippers who give us the strength of Chris P.
+                    Bacon, a one pig farting army who will not only slaughter
+                    his opponents through his stench, but through harsh words as
+                    well. We have acquired magical allies from Solana Cuties,
+                    with their academic trainings in Water-type magic, Solana
+                    cuties has now given our knights a chance to acquire a water
+                    type magical ally! Leaf, Fire, Holy, and Darkness will be on
+                    their way once graduation takes place. From the other side
+                    of town we will be acquiring knights from SolSleepyZZZ's
+                    Weaponry, who come with a specialized crafted shield with a
+                    logo to represent their home.
                   </Col>
                 </Row>
               </Col>
@@ -131,8 +155,15 @@ export const LandingPage = () => {
                 </Title>
                 <Row>
                   <Col span={20}>
-                    Each Solaknight will come with a rarity type labeled with the knight itself. Certain rarities come with perks. Higher rarity comes with better perks, discounts on items, real-estate, airdrops, weaponry, and much more! The order goes as follows White:Common, Green:Uncommon, Blue:Rare, Red:Super Rare, Purple:Epic, Orange:Legendary, Pink:Artifact, BabyPink:???. Users with Purple:Epic and above start earning more airdrops, better discounts, pre-sales, etc.
-                     
+                    Each Solaknight will come with a rarity type labeled with
+                    the knight itself. Certain rarities come with perks. Higher
+                    rarity comes with better perks, discounts on items,
+                    real-estate, airdrops, weaponry, and much more! The order
+                    goes as follows White:Common, Green:Uncommon, Blue:Rare,
+                    Red:Super Rare, Purple:Epic, Orange:Legendary,
+                    Pink:Artifact, BabyPink:???. Users with Purple:Epic and
+                    above start earning more airdrops, better discounts,
+                    pre-sales, etc.
                   </Col>
                 </Row>
               </Col>
@@ -154,17 +185,23 @@ export const LandingPage = () => {
         <br />
         <br />
         <Row style={rowStyle} justify="center">
-          <Title style={TitleH1Styles}>Solaknight Import (Not official)</Title>
+          <Col span={24} style={{ textAlign: 'center' }}>
+            <Title style={TitleH1Styles}>
+              Solaknight Import (Not official)
+            </Title>
+          </Col>
           <br />
-          <iframe
-            width="853"
-            height="480"
-            src={`https://www.youtube.com/embed/W4DtREQg8qw`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            title="Embedded youtube"
-          />
+          <Col span={24} style={{ textAlign: 'center' }}>
+            <iframe
+              width="853"
+              height="480"
+              src={`https://www.youtube.com/embed/W4DtREQg8qw`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Embedded youtube"
+            />
+          </Col>
         </Row>
         <br />
         <br />
@@ -222,8 +259,8 @@ export const LandingPage = () => {
           </Col>
           <Col span={24}>
             <Row>
-              <Col span={7}></Col>
-              <Col span={4}>
+              <Col span={6}></Col>
+              <Col span={6}>
                 <Collapse>
                   <Panel header="What's The Rarity System?" key="3">
                     {colors.map(color => {
@@ -241,7 +278,7 @@ export const LandingPage = () => {
                 </Collapse>
               </Col>
               <Col span={3}></Col>
-              <Col span={4}>
+              <Col span={5}>
                 <Collapse>
                   <Panel header="What is the Minting Process?" key="3">
                     <p style={{ color: 'white', textAlign: 'center' }}>
@@ -258,16 +295,14 @@ export const LandingPage = () => {
                   </Panel>
                 </Collapse>
               </Col>
-              <Col span={3}></Col>
+              <Col span={2}></Col>
             </Row>
           </Col>
-          <div
-            style={{ width: '100%', height: '40px' }}
-          ></div>
+          <div style={{ width: '100%', height: '40px' }}></div>
           <Col span={24}>
             <Row>
-              <Col span={7}></Col>
-              <Col span={4}>
+              <Col span={6}></Col>
+              <Col span={6}>
                 <Collapse>
                   <Panel
                     header="How do I connect my Solaknight to Unreal Engine?"
@@ -286,7 +321,7 @@ export const LandingPage = () => {
                 </Collapse>
               </Col>
               <Col span={3}></Col>
-              <Col span={4}>
+              <Col span={5}>
                 <Collapse>
                   <Panel header="What is metaplex?" key="3">
                     <p style={{ color: 'white', textAlign: 'center' }}>
@@ -306,12 +341,10 @@ export const LandingPage = () => {
                   </Panel>
                 </Collapse>
               </Col>
-              <Col span={3}></Col>
+              <Col span={2}></Col>
             </Row>
           </Col>
-          <div
-            style={{ width: '100%', height: '40px' }}
-          ></div>
+          <div style={{ width: '100%', height: '40px' }}></div>
         </Row>
       </Content>
     </Layout>

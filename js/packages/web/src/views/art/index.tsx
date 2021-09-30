@@ -79,9 +79,9 @@ export const ArtView = () => {
         <Row ref={ref}>
           <Col xs={{ span: 24 }} md={{ span: 12 }} style={{ padding: '30px' }}>
             <ArtContent
-              style={{ width: '300px', height: '300px', margin: '0 auto' }}
-              height={300}
-              width={300}
+              style={{ width: '500px', height: '500px', margin: '0 auto' }}
+              height={500}
+              width={500}
               className="artwork-image"
               pubkey={id}
               active={true}
@@ -92,7 +92,7 @@ export const ArtView = () => {
           <Col
             xs={{ span: 24 }}
             md={{ span: 12 }}
-            style={{ textAlign: 'left', fontSize: '1.4rem' }}
+            style={{ textAlign: 'left', fontSize: '1.4rem', paddingTop:"10%" }}
           >
             <Row>
               <div style={{ fontWeight: 700, fontSize: '4rem' }}>

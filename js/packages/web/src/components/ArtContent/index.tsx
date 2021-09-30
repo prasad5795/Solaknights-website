@@ -33,7 +33,7 @@ const MeshArtContent = ({
         uri={uri}
         className={className}
         preview={false}
-        style={{ width: 300, ...style }}
+        style={{ width: 200, ...style }}
       />
     );
   }
@@ -66,7 +66,7 @@ const CachedImageContent = ({
         setLoaded(true);
       }}
       placeholder={<ThreeDots />}
-      {...(loaded ? {} : { height: 200 })}
+      {...(loaded ? {} : { height: 150 })}
     />
   );
 };
@@ -183,7 +183,7 @@ const HTMLContent = ({
         uri={uri}
         className={className}
         preview={false}
-        style={{ width: 300, ...style }}
+        style={{ width: 200, ...style }}
       />
     );
   }

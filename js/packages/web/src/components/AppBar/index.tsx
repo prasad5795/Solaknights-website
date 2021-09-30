@@ -57,7 +57,7 @@ const DefaultActions = ({ vertical = false }: { vertical?: boolean }) => {
       <Link to={`/`}>
         <Button className="app-btn">Home</Button>
       </Link>
-      <Link to={`/`}>
+      <Link to={`/auctions`}>
         <Button className="app-btn">Marketplace</Button>
       </Link>
       <Link to={`/artworks`}>
@@ -69,13 +69,34 @@ const DefaultActions = ({ vertical = false }: { vertical?: boolean }) => {
         <Button className="app-btn">Partners</Button>
       </Link>
       <Link to={`/`}>
-        <Button className="app-btn">Discord</Button>
+        <Button
+          className="app-btn"
+          onClick={() =>
+            (window.location.href = 'https://discord.gg/9mWvxpy5Gq')
+          }
+        >
+          Discord
+        </Button>
       </Link>
       <Link to={`/`}>
-        <Button className="app-btn">Twitter</Button>
+        <Button
+          className="app-btn"
+          onClick={() =>
+            (window.location.href = 'https://twitter.com/Solanaknights')
+          }
+        >
+          Twitter
+        </Button>
       </Link>
       <Link to={`/`}>
-        <Button className="app-btn">Instagram</Button>
+        <Button
+          className="app-btn"
+          onClick={() =>
+            (window.location.href = 'https://instagram.com/solaknights')
+          }
+        >
+          Instagram
+        </Button>
       </Link>
       {/* <Link to={`/artworks`}>
         <Button className="app-btn">
@@ -173,6 +194,7 @@ export const AppBar = () => {
 const LogoTitleDiv = styled.div`
   & {
     display: flex;
+    margin-right:1%;
     .ant-image {
       margin-right: 10px;
     }
