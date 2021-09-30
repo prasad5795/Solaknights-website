@@ -70,12 +70,10 @@ export const LandingPage = () => {
                 <Row>
                   <Col span={20}>
                     There will be a total of 20,000 characters minted. 10,000
-                    will be Solaknights 2d with colored backgrounds that are
-                    determined by rarity, and the other 10,000 will be
-                    Solaknights 3D, which all come with an animation such as our
-                    Solaknight Welcome Warrior (Available when Metaplex's Buy
-                    Now capability is released! ). We are going to do
-                    environment / accessories as well.
+                    will be Solaknights Generation 0, which are unique characters who come without a weapon - 1 SOLANA. The 2nd planned batch
+                    of 10,000 Knights are planned to come equipped from a land far away. These knights comes equipped and have honed their skills at their Barracks from a town far far away.
+                     As their master, leader, and comrade, it is up to you to guide these glorious knights. Use them as your disposal, their sole pourpose is to aid you in any way possible.
+                      They are capable of being your main character, aiding you in combat, acting as a merchant for discounts on their specialties, and you may also send them on missions to acquire goods for you across the globe!
                   </Col>
                 </Row>
               </Col>
@@ -94,12 +92,9 @@ export const LandingPage = () => {
                 <Row>
                   <Col span={20}>
                     Here at Solaknights, we have integrated our characters with
-                    Unreal Engine 4/5. By owning a 3D version of the NFT, you
-                    will be able to connect your wallet so you can use the skin,
-                    animations as emote, and all the gear with it in our
-                    upcoming games! Solaknights is based on the Solana
-                    blockchain using Unreal Engine technology to connect them
-                    together.
+                    Unreal Engine 4/5. The Solana applicated By owning a Solaknight, you are officially partnered with the Solaknights Academy. Welcome aboard and remember, these knights 
+                    come in different specializations and are armed for your services. Import them as you will, use them to your advantage, and even swap their gear to make a better knight for yourself if you wish to have one extremely powerful one man army.
+
                   </Col>
                 </Row>
               </Col>
@@ -117,10 +112,8 @@ export const LandingPage = () => {
                 </Title>
                 <Row>
                   <Col span={20}>
-                    Solaknights is partnering with anyone who is interested
-                    right now! Feel free to contact via Discord, Instagram, or
-                    Twitter! We love working side by side with content creators
-                    to grow together as a community.
+                    Solaknights Academy has acquired many partners along wretched battles to get our knights on the line. We have allied with Dippers who give us the strength of Chris P. Bacon, a one pig farting army who will not only slaughter his opponents through his stench, but through harsh words as well.
+                     We have acquired magical allies from Solana Cuties, with their academic trainings in Water-type magic, Solana cuties has now given our knights a chance to acquire a water type magical ally! Leaf, Fire, Holy, and Darkness will be on their way once graduation takes place. From the other side of town we will be acquiring knights from SolSleepyZZZ's Weaponry, who come with a specialized crafted shield with a logo to represent their home.
                   </Col>
                 </Row>
               </Col>
@@ -133,18 +126,13 @@ export const LandingPage = () => {
                     <Col span={3}>
                       <img src="/svgs/rarity.svg"></img>
                     </Col>
-                    <StyledLabelCol span={18}>rarity</StyledLabelCol>
+                    <StyledLabelCol span={18}>Rarity</StyledLabelCol>
                   </Row>
                 </Title>
                 <Row>
                   <Col span={20}>
-                    Each Solaknight character is randomly generated daily on
-                    Unreal Engine until we hit 10,000 of each 2d and 3d
-                    versions. See below for the rarity chart! Pricing of
-                    rarities are programmed to go up on a fibonacci scale.
-                    Partnered creations are not included in the 20,000 mints as
-                    well as rarity for Solaknights, they work as a separate
-                    entity.
+                    Each Solaknight will come with a rarity type labeled with the knight itself. Certain rarities come with perks. Higher rarity comes with better perks, discounts on items, real-estate, airdrops, weaponry, and much more! The order goes as follows White:Common, Green:Uncommon, Blue:Rare, Red:Super Rare, Purple:Epic, Orange:Legendary, Pink:Artifact, BabyPink:???. Users with Purple:Epic and above start earning more airdrops, better discounts, pre-sales, etc.
+                     
                   </Col>
                 </Row>
               </Col>
@@ -154,6 +142,10 @@ export const LandingPage = () => {
             <MeshViewer
               className="move-right modalSize"
               url="https://www.arweave.net/oE4FhiaDFuwmrJFoCmrxFkYCxBPrb5XKY80cUdxN4Pg?ext=glb"
+            />
+            <MeshViewer
+              className="move-right modalSize"
+              url="https://www.arweave.net/xZCNDBtspBkFLGEBv2EnRmtOokQV5mHNexBqpok_er8?ext=glb"
             />
           </StyledCol>
           <StyledCol span={4}></StyledCol>

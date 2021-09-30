@@ -11,10 +11,16 @@ export const ArtistView = () => {
   const creator = useCreator(id);
   const artwork = useCreatorArts(id);
   const breakpointColumnsObj = {
-    default: 4,
-    1100: 3,
+    default: 10,
+    2300: 9,
+    2000: 8,
+    1800: 7,
+    1500: 6,
+    1300: 5,
+    1100: 4,
+    900: 3,
     700: 2,
-    500: 1,
+    400: 1,
   };
 
   const artworkGrid = (

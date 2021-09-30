@@ -130,7 +130,7 @@ export const PartnersView = props => {
                 ></Image>
                 <MintButtonComponent
                   {...mintBtnComponentProps}
-                  text="Mint Adult Chris P. Bacon"
+                  text="Mint Adult Chris P. Bacon - 1 SOL"
                 />
               </Row>
               <Row>
@@ -144,7 +144,7 @@ export const PartnersView = props => {
                 ></Image>
                 <MintButtonComponent
                   {...mintBtnComponentProps}
-                  text="Mint Baby Chris P. Bacon"
+                  text="Mint Baby Chris P. Bacon: 1 Solana"
                 />
               </Row>
             </Col>
