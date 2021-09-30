@@ -76,11 +76,14 @@ export const PartnersView = props => {
               <Image
                 src="/img/SolSleepyZZZ.png"
                 preview={false}
-                height={300}
-                width={500}
+                // height={300}
+                // width={550}
+                style={{
+                  height: '100%',
+                  width: '95%',
+                }}
               ></Image>
             </Col>
-            <Col span={2}></Col>
             <Col span={12}>
               <Title style={{ color: 'black' }}>
                 Solaknights x SolSleepyZZZ
@@ -205,7 +208,8 @@ export const PartnersView = props => {
                 ></Image>
                 <MintButtonComponent
                   {...mintBtnComponentProps}
-                  text="Mint Adult Chris P. Bacon - 1 SOL"
+                  text="Mint Adult Chris P. Bacon"
+                  price="1 SOL"
                 />
               </Row>
               <Row>
@@ -219,7 +223,8 @@ export const PartnersView = props => {
                 ></Image>
                 <MintButtonComponent
                   {...mintBtnComponentProps}
-                  text="Mint Baby Chris P. Bacon: 1 Solana"
+                  text="Mint Baby Chris P. Bacon"
+                  price="1 SOL"
                 />
               </Row>
             </Col>

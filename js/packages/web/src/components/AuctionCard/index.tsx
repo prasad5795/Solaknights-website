@@ -468,7 +468,7 @@ export const AuctionCard = ({
           }}
         >
           Your {auctionView.isInstantSale ? 'purchase' : 'bid'} has been
-          redeemed please view your NFTs in <Link to="/artworks">My Items</Link>
+          redeemed please view your NFTs in <Link to="/mysolaknights">My Items</Link>
           .
         </p>
         <Button

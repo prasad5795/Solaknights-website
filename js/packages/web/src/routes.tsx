@@ -34,7 +34,7 @@ export function Routes() {
             />
             <Route
               exact
-              path="/artworks/:id?"
+              path="/mysolaknights/:id?"
               component={() => <ArtworksView />}
             />
             <Route exact path="/art/:id" component={() => <ArtView />} />
@@ -52,7 +52,7 @@ export function Routes() {
             />
             <Route
               exact
-              path="/auctions"
+              path="/marketplace"
               component={() => <AuctionListView />}
             />
             <Route

@@ -63,14 +63,14 @@ export const SetupView = () => {
 
   return (
     <>
-      {!wallet.connected && (
+      <LandingPage />
+      {/* {!wallet.connected && (
         // <p>
         //   <Button type="primary" className="app-btn" onClick={connect}>
         //     Connect
         //   </Button>{' '}
         //   to configure store.
         // </p>
-        <LandingPage/>
       )}
       {wallet.connected && !store && (
         <>
@@ -104,7 +104,7 @@ export const SetupView = () => {
             storeOwnerAddress={wallet.publicKey?.toBase58()}
           />
         </>
-      )}
+      )} */}
     </>
   );
 };

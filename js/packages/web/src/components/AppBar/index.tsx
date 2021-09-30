@@ -57,10 +57,10 @@ const DefaultActions = ({ vertical = false }: { vertical?: boolean }) => {
       <Link to={`/`}>
         <Button className="app-btn">Home</Button>
       </Link>
-      <Link to={`/auctions`}>
+      <Link to={`/marketplace`}>
         <Button className="app-btn">Marketplace</Button>
       </Link>
-      <Link to={`/artworks`}>
+      <Link to={`/mysolaknights`}>
         <Button className="app-btn">
           {connected ? 'My Solaknights' : 'My Solaknights'}
         </Button>
@@ -130,7 +130,7 @@ const MetaplexMenu = () => {
                 </Link>
               </Menu.Item>
               <Menu.Item>
-                <Link to={`/artworks`}>
+                <Link to={`/mysolaknights`}>
                   <Button className="app-btn">
                     {connected ? 'My Items' : 'Artworks'}
                   </Button>

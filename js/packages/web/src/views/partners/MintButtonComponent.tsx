@@ -224,6 +224,8 @@ export const MintButtonComponent = props => {
 
       {wallet.connected && (
         <p style={{ textAlign: 'center' }}>
+          Price: {props.price}
+          <br />
           Address: {shortenAddress(wallet.publicKey?.toBase58() || '')}
           <br />
           Balance: {(balance || 0).toLocaleString()} SOL

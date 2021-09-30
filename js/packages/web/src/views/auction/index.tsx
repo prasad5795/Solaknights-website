@@ -61,7 +61,7 @@ export const AuctionItem = ({
     marginLeft: size > 1 && index === 0 ? '0px' : 'auto',
     background: 'black',
     boxShadow: 'rgb(0 0 0 / 10%) 12px 2px 20px 14px',
-    height: 300,
+    height: "100%",
   };
   return (
     <ArtContent
@@ -124,41 +124,15 @@ export const AuctionView = () => {
 
   return (
     <>
-      <Row justify="space-around" ref={ref}>
+      <Row justify="space-around" ref={ref} style={{ paddingTop: '4%' }}>
         <Col span={24} md={12} className="pr-4">
-          <div className="auction-view" style={{ minHeight: 300 }}>
+          <div className="auction-view" style={{ minHeight: "100%" }}>
             <Carousel
               autoplay={false}
               afterChange={index => setCurrentIndex(index)}
             >
               {items}
             </Carousel>
-          </div>
-          <h6>Number Of Winners</h6>
-          <h1>
-            {winnerCount === undefined ? (
-              <Skeleton paragraph={{ rows: 0 }} />
-            ) : (
-              winnerCount
-            )}
-          </h1>
-          <h6>Number Of NFTs</h6>
-          <h1>
-            {nftCount === undefined ? (
-              <Skeleton paragraph={{ rows: 0 }} />
-            ) : (
-              nftCount
-            )}
-          </h1>
-          <h6>About this {nftCount === 1 ? 'NFT' : 'Collection'}</h6>
-          <div className="auction-paragraph">
-            {hasDescription && <Skeleton paragraph={{ rows: 3 }} />}
-            {description ||
-              (winnerCount !== undefined && (
-                <div style={{ fontStyle: 'italic' }}>
-                  No description provided.
-                </div>
-              ))}
           </div>
 
           {attributes && (
@@ -196,6 +170,33 @@ export const AuctionView = () => {
                   {(auction?.items.length || 0) > 1 ? 'Multiple' : edition}
                 </p>
               )}
+
+              <div className="auction-paragraph">
+                {hasDescription && <Skeleton paragraph={{ rows: 3 }} />}
+                {description ||
+                  (winnerCount !== undefined && (
+                    <div style={{ fontStyle: 'italic' }}>
+                      No description provided.
+                    </div>
+                  ))}
+              </div>
+              <h6>Number Of Winners</h6>
+              <h1>
+                {winnerCount === undefined ? (
+                  <Skeleton paragraph={{ rows: 0 }} />
+                ) : (
+                  winnerCount
+                )}
+              </h1>
+              <h6>Number Of NFTs</h6>
+              <h1>
+                {nftCount === undefined ? (
+                  <Skeleton paragraph={{ rows: 0 }} />
+                ) : (
+                  nftCount
+                )}
+              </h1>
+              <h6>About this {nftCount === 1 ? 'NFT' : 'Collection'}</h6>
             </Col>
 
             <Col>
