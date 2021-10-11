@@ -1,8 +1,6 @@
-<p align="center">
-  <a href="https://metaplex.com">
-    <img alt="Metaplex" src="https://metaplex.com/meta.svg" width="250" />
-  </a>
-</p>
+**#Solaknghts**
+
+This is a NFT website based on metaplex framework provided by Solana and Exiled Apes Candy machine. If anyone wants to check the website source code, please switch to update-ui-first-cut branch
 
 Metaplex is a protocol built on top of Solana that allows:
 
