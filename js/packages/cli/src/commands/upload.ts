@@ -74,7 +74,8 @@ export async function upload(
       log.info(`Processing file: ${i}`);
     }
 
-    const storageCost = 10;
+    //************* change the storage cost
+    const storageCost = 0;
 
     let link = cacheContent?.items?.[index]?.link;
     if (!link || !cacheContent.program.uuid) {

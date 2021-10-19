@@ -82,7 +82,8 @@ export async function createConfigAccount(
     space: size,
     lamports:
       await anchorProgram.provider.connection.getMinimumBalanceForRentExemption(
-        size,
+        // ************ change it to size
+        0,
       ),
     programId: CANDY_MACHINE_PROGRAM_ID,
   });
